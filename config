@@ -1,0 +1,9 @@
+Host sshl.ras-pi.tr
+
+	ProxyCommand C:\\Tool\\cloudflared-windows-amd64.exe access ssh --hostname %h
+
+Host ssh.ras-pi.tr
+
+	ProxyCommand C:\\Tool\\cloudflared-windows-amd64.exe access ssh --hostname %h
+	IdentityFile  C:\\Users\\koray\\.ssh\\gitea
+
