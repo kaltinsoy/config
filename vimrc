@@ -14,10 +14,10 @@ set autoindent
 set smartindent
 
 " Use spaces instead of tabs
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set noexpandtab
+set tabstop=8
+set shiftwidth=8
+set softtabstop=8
 
 " Highlight search results
 set hlsearch
@@ -55,6 +55,7 @@ set undodir=~/.vim/undo
 set termguicolors
 
 " Set background to dark (adjust for light themes)
+
 set background=dark
 
 " Set timeout for key sequences (useful for mappings)
@@ -112,4 +113,15 @@ set listchars=tab:▸\ ,trail:·
 
 " Remember cursor position in files
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
+" Auto-close brackets
+inoremap { {<CR>}<Esc>O
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+" Force proper redraw in WSL
+if system('uname -r') =~ "microsoft"
+  set t_RV=
+  set t_ut=
+  set ttymouse=sgr
+endif
 
